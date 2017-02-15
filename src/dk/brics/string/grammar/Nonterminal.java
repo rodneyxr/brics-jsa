@@ -16,7 +16,7 @@ public class Nonterminal implements GraphNode, Comparable<Nonterminal> {
 
     private boolean taint;
 
-    Nonterminal(int key) {
+    public Nonterminal(int key) {
         this.key = key;
     }
 
