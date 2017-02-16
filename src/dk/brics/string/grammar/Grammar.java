@@ -2,12 +2,8 @@ package dk.brics.string.grammar;
 
 import dk.brics.automaton.Automaton;
 import dk.brics.string.directedgraph.StronglyConnectedComponents;
-import dk.brics.string.grammar.operations.Component;
+import dk.brics.string.grammar.operations.*;
 import dk.brics.string.grammar.operations.Component.Recursion;
-import dk.brics.string.grammar.operations.AssertionCycleApproximation;
-import dk.brics.string.grammar.operations.GrammarAsDirectedGraph;
-import dk.brics.string.grammar.operations.OperationCycleApproximation;
-import dk.brics.string.grammar.operations.RegularApproximation;
 import dk.brics.string.stringoperations.BinaryOperation;
 import dk.brics.string.stringoperations.UnaryOperation;
 
@@ -138,7 +134,7 @@ public class Grammar {
             }
         }
     }
-    
+
     /**
      * Breaks operation cycles using {@link AssertionCycleApproximation} and then
      * approximates the remaining operation cycles with {@link OperationCycleApproximation}.
@@ -202,5 +198,11 @@ public class Grammar {
      */
     public void approximateNonLinear(Collection<Nonterminal> hotspots) {
         new RegularApproximation(this).approximate(hotspots);
+    }
+
+    public Grammar copy() {
+        Grammar copy = new Grammar();
+        copy.nonterminals.addAll(nonterminals);
+        return copy;
     }
 }
