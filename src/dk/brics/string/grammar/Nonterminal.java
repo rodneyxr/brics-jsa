@@ -14,10 +14,17 @@ public class Nonterminal implements GraphNode, Comparable<Nonterminal> {
 
     private int key;
 
+    private String alias;
+
     private boolean taint;
 
     public Nonterminal(int key) {
+        this(key, "");
+    }
+
+    public Nonterminal(int key, String alias) {
         this.key = key;
+        this.alias = alias;
     }
 
     public boolean isTaint() {
@@ -33,6 +40,13 @@ public class Nonterminal implements GraphNode, Comparable<Nonterminal> {
      */
     public int getKey() {
         return key;
+    }
+
+    /**
+     * Returns the alias of this nonterminal.
+     */
+    public String alias() {
+        return alias;
     }
 
     /**
@@ -68,6 +82,8 @@ public class Nonterminal implements GraphNode, Comparable<Nonterminal> {
      */
     @Override
     public String toString() {
-        return "x" + key;
+        if (alias == null || alias.equals(""))
+            return "x" + key;
+        return alias;
     }
 }

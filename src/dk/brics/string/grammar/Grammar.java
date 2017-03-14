@@ -38,6 +38,15 @@ public class Grammar {
     }
 
     /**
+     * Adds new nonterminal with alias.
+     */
+    public Nonterminal addNonterminal(String alias) {
+        Nonterminal n = new Nonterminal(nonterminals.size(), alias);
+        nonterminals.add(n);
+        return n;
+    }
+
+    /**
      * Returns the (unmodifiable) list of nonterminals in this grammar.
      */
     public List<Nonterminal> getNonterminals() {
@@ -116,11 +125,13 @@ public class Grammar {
     @Override
     public String toString() {
         StringBuilder s = new StringBuilder();
+        s.append("{\n");
         for (Nonterminal v : nonterminals) {
             for (Production p : v.getProductions()) {
-                s.append(v).append(" -> ").append(p).append("\n");
+                s.append("\t").append(v).append(" -> ").append(p).append("\n");
             }
         }
+        s.append("}");
         return s.toString();
     }
 
