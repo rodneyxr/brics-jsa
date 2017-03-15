@@ -84,6 +84,6 @@ public class Nonterminal implements GraphNode, Comparable<Nonterminal> {
     public String toString() {
         if (alias == null || alias.equals(""))
             return "x" + key;
-        return alias;
+        return alias + "k" + key;
     }
 }
