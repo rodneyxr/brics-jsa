@@ -19,7 +19,7 @@ dependencies {
     // https://mvnrepository.com/artifact/ca.mcgill.sable/soot
     implementation("ca.mcgill.sable:soot:4.1.0")
     // https://github.com/rodneyxr/brics-automaton
-    implementation("com.github.rodneyxr:brics-automaton:gradle-SNAPSHOT")
+    implementation("com.github.rodneyxr:brics-automaton:main-SNAPSHOT")
 }
 
 publishing {
